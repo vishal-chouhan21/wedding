@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wedding of Kasandra &amp; Imanule</title>
+<title>Wedding of Dhruv &amp; Nidhi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Marcellus&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -1039,6 +1039,183 @@ h2 {
   transform: translate(-50%, 0);
 }
 
+/* ==================== WEDDING PROGRAMME SECTION ==================== */
+#prog {
+  background: linear-gradient(180deg, #fff9f4 0%, #fbeae8 100%);
+  padding: 48px 16px;
+}
+
+.prog-title-wrap {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.prog-title-wrap h2 {
+  font-size: 30px;
+  color: var(--w);
+  margin-bottom: 4px;
+}
+
+.prog-ornament {
+  font-size: 20px;
+  color: var(--g);
+  margin: 6px 0;
+}
+
+.prog-tagline {
+  font-size: 13px;
+  color: var(--tx-muted);
+  font-style: italic;
+  font-family: var(--pf);
+  line-height: 1.6;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.prog-day {
+  background: #fff;
+  border: 1.5px solid var(--g);
+  border-radius: 18px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(110,31,47,0.08);
+}
+
+.prog-day-header {
+  background: linear-gradient(90deg, var(--w-dark) 0%, var(--w) 100%);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prog-day-header .di {
+  font-size: 20px;
+}
+
+.prog-day-header h3 {
+  font: 600 15px/1.3 var(--eng);
+  letter-spacing: 0.08em;
+}
+
+.prog-day-header .dv {
+  font-size: 11px;
+  opacity: 0.8;
+  font-family: var(--mo);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.prog-events {
+  padding: 16px 18px;
+}
+
+.prog-event-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 9px 0;
+  border-bottom: 1px dashed #e8d5d0;
+}
+
+.prog-event-row:last-child {
+  border-bottom: none;
+}
+
+.prog-time {
+  min-width: 90px;
+  font: 700 12px/1.4 var(--eng);
+  color: var(--w);
+  letter-spacing: 0.04em;
+}
+
+.prog-name {
+  font-size: 13.5px;
+  color: var(--tx);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.prog-name strong {
+  font-weight: 700;
+  color: var(--w);
+}
+
+/* QR Code block */
+.prog-qr-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px 16px;
+  border-top: 1.5px solid #f0dbd8;
+  background: #fff8f6;
+}
+
+.prog-qr-block img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  border: 1.5px solid var(--g);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.prog-qr-info {
+  flex: 1;
+}
+
+.prog-qr-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--g);
+  font-family: var(--eng);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.prog-qr-venue {
+  font: 600 14px/1.4 var(--pf);
+  color: var(--w);
+}
+
+.prog-qr-hint {
+  font-size: 11.5px;
+  color: var(--tx-muted);
+  margin-top: 3px;
+}
+
+/* Delicious Foods footer */
+.prog-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding: 16px;
+  background: linear-gradient(90deg, var(--w-dark), var(--w));
+  border-radius: 14px;
+  color: #fff;
+}
+
+.prog-footer .pf-text {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: var(--eng);
+  opacity: 0.85;
+}
+
+.prog-footer .pf-big {
+  font: italic 700 22px/1.3 var(--pf);
+  color: var(--g2);
+  margin-top: 4px;
+}
+
+.prog-footer .pf-orn {
+  color: var(--g);
+  font-size: 16px;
+  margin: 2px 0;
+}
+
 /* ==================== CLOSING ==================== */
 .cl {
   text-align: center;
@@ -1067,11 +1244,11 @@ h2 {
         <div class="cov">
           <div class="cf">
             <div class="em">
-              <img src="images/wedding_crest.svg" alt="Kasandra &amp; Imanule Crest">
+              <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
             </div>
             <div class="cover-txt-sub">You Are Invited To The Wedding Of</div>
-            <div class="cover-txt-title">KASANDRA &amp; IMANULE</div>
-            <div class="cover-txt-venue">October 19th • The White Church, 125 Rd</div>
+            <div class="cover-txt-title">DHRUV &amp; NIDHI</div>
+            <div class="cover-txt-venue">January 29th • Kapidhwaj Party Plot</div>
           </div>
           <div class="cb"></div>
         </div>
@@ -1098,28 +1275,28 @@ h2 {
     <div class="arch">
       <!-- Real Couple Photo with Soft Blur & Ambient Zoom -->
       <div class="bgp">
-        <img src="images/hero_couple.jpg" alt="Kasandra &amp; Imanule">
+        <img src="images/hero_couple.jpg" alt="Dhruv &amp; Nidhi">
       </div>
 
 
       <!-- Geometric Wedding Monogram Crest -->
       <div class="med hs">
-        <img src="images/wedding_crest.svg" alt="Kasandra &amp; Imanule Crest">
+        <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
       </div>
 
       <div class="sm hs" style="letter-spacing:0.26em;color:#9b7228;font-weight:600;">YOU ARE INVITED TO THE WEDDING OF</div>
       
       <!-- Bride & Groom -->
       <div>
-        <div class="nm" id="bride_name">Kasandra</div>
-        <div class="fm hs">Daughter of Mr. &amp; Mrs. Miller</div>
+        <div class="nm" id="bride_name">Dhruv</div>
+        <div class="fm hs">Son of Mr. &amp; Mrs. Chouhan</div>
       </div>
 
       <div class="amp hs">&amp;</div>
 
       <div>
-        <div class="nm" id="groom_name">Imanule</div>
-        <div class="fm hs">Son of Mr. &amp; Mrs. David</div>
+        <div class="nm" id="groom_name">Nidhi</div>
+        <div class="fm hs">Daughter of Mr. &amp; Mrs. Patel</div>
       </div>
 
       <div class="inv hs">
@@ -1129,7 +1306,7 @@ h2 {
       <!-- Ceremony Date & Venue Badge -->
       <div class="h-date-badge hs">
         <span class="h-badge-dot"></span>
-        October 19th • The White Church, 125 Rd
+        January 29th • Kapidhwaj Party Plot
         <span class="h-badge-dot"></span>
       </div>
 
@@ -1152,13 +1329,13 @@ h2 {
         <img class="rc" data-r="0" style="right:-14px;bottom:-14px">
         
         <div class="med" style="width:68px">
-          <img src="images/wedding_crest.svg" alt="Kasandra &amp; Imanule Crest">
+          <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
         </div>
 
         <div class="sm" style="margin-top:12px;color:var(--w);">Save the date</div>
-        <div class="dt" id="dd">19</div>
-        <div class="pf" id="dm" style="color:var(--w);font-size:18px;">October</div>
-        <div class="sm" id="dp" style="margin-top:6px;color:var(--g);font-weight:600;">The White Church, 125 Rd</div>
+        <div class="dt" id="dd">29</div>
+        <div class="pf" id="dm" style="color:var(--w);font-size:18px;">January</div>
+        <div class="sm" id="dp" style="margin-top:6px;color:var(--g);font-weight:600;">Kapidhwaj Party Plot</div>
       </div>
       
       <div id="roll"></div>
@@ -1203,10 +1380,196 @@ h2 {
     </div>
   </section>
 
+  <!-- WEDDING PROGRAMME SECTION -->
+  <section id="prog">
+    <div class="prog-title-wrap rv">
+      <div class="prog-ornament">❧ ✦ ❧</div>
+      <h2>Dhruv &amp; Nidhi</h2>
+      <div class="sub" style="margin-bottom:8px;">Wedding Rituals &amp; Programme</div>
+      <div class="prog-ornament">❧ ✦ ❧</div>
+      <div class="prog-tagline">With love and blessings, we look forward to celebrating<br>these auspicious moments with family and friends.</div>
+    </div>
+
+    <!-- Sunday, 24 Jan -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">🎵</div>
+        <div>
+          <h3>Sunday, 24 January 2027</h3>
+          <div class="dv">Sheetal Westpark / Venus Ultima</div>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">7:15 PM onwards</div>
+          <div class="prog-name"><strong>Bethak</strong> with Delicious Food and Mesmerising Music</div>
+        </div>
+      </div>
+      <div class="prog-qr-block">
+        <img src="images/qr_sheetal.jpg" alt="Sheetal Westpark QR">
+        <div class="prog-qr-info">
+          <div class="prog-qr-label">Scan for Directions</div>
+          <div class="prog-qr-venue">Sheetal Westpark</div>
+          <div class="prog-qr-hint">Scan QR to open in Maps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monday, 25 Jan -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">🎶</div>
+        <div>
+          <h3>Monday, 25 January 2027</h3>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">7:00 PM onwards</div>
+          <div class="prog-name"><strong>Bethak</strong> with Delicious Food</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tuesday, 26 Jan -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">🌿</div>
+        <div>
+          <h3>Tuesday, 26 January 2027</h3>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">4:00 PM onwards</div>
+          <div class="prog-name"><strong>Mehndi</strong> followed with Delicious Food</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wednesday, 27 Jan - Chanchal Baug -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">🕉️</div>
+        <div>
+          <h3>Wednesday, 27 January 2027</h3>
+          <div class="dv">Chanchal Baug Party Plot</div>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">9:00 AM</div>
+          <div class="prog-name"><strong>Ganesh Sthapna</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">9:30 AM</div>
+          <div class="prog-name"><strong>Mandap Muhurat</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">10:30 AM</div>
+          <div class="prog-name"><strong>Mameru</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">11:15 AM</div>
+          <div class="prog-name"><strong>Lagan Pado</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">11:45 AM</div>
+          <div class="prog-name"><strong>Haldi Ceremony</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">12:30 PM</div>
+          <div class="prog-name"><strong>Lunch</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">7:00 PM onwards</div>
+          <div class="prog-name"><strong>Melodious Garba Night 💃</strong></div>
+        </div>
+      </div>
+      <div class="prog-qr-block">
+        <img src="images/qr_chanchal.jpg" alt="Chanchal Baug QR">
+        <div class="prog-qr-info">
+          <div class="prog-qr-label">Scan for Directions</div>
+          <div class="prog-qr-venue">Chanchal Baug Party Plot</div>
+          <div class="prog-qr-hint">Scan QR to open in Maps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thursday, 28 Jan - Kapidhwaj -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">🌸</div>
+        <div>
+          <h3>Thursday, 28 January 2027</h3>
+          <div class="dv">Kapidhwaj Party Plot</div>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">1:45 PM</div>
+          <div class="prog-name"><strong>Jan Prasthan</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">3:30 PM</div>
+          <div class="prog-name"><strong>Expected Arrival</strong> at Kapidhwaj</div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">3:30 – 5:30 PM</div>
+          <div class="prog-name"><strong>Band Baja Procession</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">5:30 PM</div>
+          <div class="prog-name"><strong>Entry into the Venue &amp; Pokwanu</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">6:15 PM</div>
+          <div class="prog-name"><strong>Hastmedap Ceremony</strong></div>
+        </div>
+        <div class="prog-event-row">
+          <div class="prog-time">11:30 PM</div>
+          <div class="prog-name"><strong>Welcoming the Newlyweds</strong> at Our Home 🏠</div>
+        </div>
+      </div>
+      <div class="prog-qr-block">
+        <img src="images/qr_kapidhwaj.jpg" alt="Kapidhwaj QR">
+        <div class="prog-qr-info">
+          <div class="prog-qr-label">Scan for Directions</div>
+          <div class="prog-qr-venue">Kapidhwaj Party Plot</div>
+          <div class="prog-qr-hint">Scan QR to open in Maps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Friday, 29 Jan - Reception -->
+    <div class="prog-day rv">
+      <div class="prog-day-header">
+        <div class="di">✨</div>
+        <div>
+          <h3>Friday, 29 January 2027</h3>
+          <div class="dv">Reception — Kapidhwaj Party Plot</div>
+        </div>
+      </div>
+      <div class="prog-events">
+        <div class="prog-event-row">
+          <div class="prog-time">7:00 PM</div>
+          <div class="prog-name"><strong>Reception 🎉</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="prog-footer rv">
+      <div class="pf-text">All events are followed by</div>
+      <div class="pf-orn">❧ ✦ ❧</div>
+      <div class="pf-big">Delicious Foods</div>
+      <div class="pf-orn">❧ ✦ ❧</div>
+    </div>
+  </section>
+
   <!-- LOCATION & MAP -->
   <section>
-    <h2 class="rv">Location</h2>
-    <div class="sub rv">Tap the map</div>
+    <h2 class="rv">Location</h2>    <div class="sub rv">Tap the map</div>
     
     <a id="mpa" class="mp rv" target="_blank" rel="noopener">
       <svg viewBox="0 0 360 230" width="100%" style="display:block;background:#f4ead8">
@@ -1234,7 +1597,7 @@ h2 {
   <!-- CLOSING -->
   <section class="cl">
     <div class="med rv">
-      <img src="images/wedding_crest.svg" alt="Kasandra &amp; Imanule Crest">
+      <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
     </div>
     
     <h2 class="rv">We can't wait to celebrate with you</h2>
@@ -1249,21 +1612,22 @@ h2 {
 <script>
 /* ==================== CONFIGURATION & WEDDING DETAILS ==================== */
 const C = {
-  bride: "Kasandra",
-  groom: "Imanule",
-  closing: "Kasandra &amp; Imanule",
-  date: "2027-10-19T14:00:00+05:30",
-  dateTxt: { d: "19", m: "October", day: "Saturday" },
-  venue: "The White Church, 125 Rd",
-  maps: "https://maps.google.com/?q=The+White+Church+125+Rd",
+  bride: "Dhruv",
+  groom: "Nidhi",
+  closing: "Dhruv &amp; Nidhi",
+  date: "2027-01-29T19:00:00+05:30",
+  dateTxt: { d: "29", m: "January", day: "Friday" },
+  venue: "Kapidhwaj Party Plot, Vadodara",
+  maps: "https://maps.google.com/?q=Kapidhwaj+Party+Plot+Vadodara",
   
   // Wedding Festivities (Carousel 1)
   fn: [
-    { n: "Welcome Drinks", ic: "🥂", img: "images/welcome_drinks.jpg", day: "Friday, October 18th", t: "6:00 PM", p: "Church Garden Lawn", dc: "Smart Casual", col: "#e8a838" },
-    { n: "Holy Matrimony", ic: "⛪", img: "images/white_church.jpg", day: "Saturday, October 19th", t: "2:00 PM", p: "The White Church Sanctuary", dc: "Semi-Formal", col: "#b8385a" },
-    { n: "Cocktail Hour", ic: "🍸", img: "images/cocktail_hour.jpg", day: "Saturday, October 19th", t: "4:30 PM", p: "Courtyard &amp; Veranda", dc: "Cocktails &amp; Canapés", col: "#c9a24b" },
-    { n: "Grand Reception", ic: "✨", img: "images/grand_reception.jpg", day: "Saturday, October 19th", t: "6:30 PM onwards", p: "The Grand Pavilion, 125 Rd", dc: "Black Tie Optional", col: "#942b40" },
-    { n: "After Party", ic: "💃", img: "images/after_party.jpg", day: "Saturday, October 19th", t: "10:30 PM till late", p: "The Lounge at 125 Rd", dc: "Party Attire", col: "#a83a58" }
+    { n: "Bethak", ic: "🎵", img: "images/welcome_drinks.jpg", day: "Sunday, 24 January 2027", t: "7:15 PM onwards", p: "Sheetal Westpark / Venus Ultima", dc: "Delicious Food &amp; Mesmerising Music", col: "#e8a838" },
+    { n: "Bethak", ic: "🎶", img: "images/cocktail_hour.jpg", day: "Monday, 25 January 2027", t: "7:00 PM onwards", p: "Venue TBD", dc: "Delicious Food", col: "#c9a24b" },
+    { n: "Mehndi Night", ic: "🌿", img: "images/after_party.jpg", day: "Tuesday, 26 January 2027", t: "4:00 PM onwards", p: "Venue TBD", dc: "Mehndi &amp; Delicious Food", col: "#6e8c3a" },
+    { n: "Garba Night", ic: "💃", img: "images/white_church.jpg", day: "Wednesday, 27 January 2027", t: "7:00 PM onwards", p: "Chanchal Baug Party Plot", dc: "Melodious Garba Night", col: "#b8385a" },
+    { n: "Wedding Ceremony", ic: "🌸", img: "images/grand_reception.jpg", day: "Thursday, 28 January 2027", t: "3:30 PM onwards", p: "Kapidhwaj Party Plot", dc: "Hastmedap &amp; Band Baja", col: "#942b40" },
+    { n: "Reception", ic: "✨", img: "images/couple_portrait.jpg", day: "Friday, 29 January 2027", t: "7:00 PM onwards", p: "Kapidhwaj Party Plot", dc: "Formal / Traditional", col: "#6e1f2f" }
   ],
 
   // Our Story (Carousel 2) - Real Photography Cards
@@ -1290,15 +1654,15 @@ const C = {
       img: "images/story_forever.jpg",
       sub: "Chapter IV",
       title: "Forever Begins",
-      desc: "Surrounded by our dearest family and cherished friends on October 19th, our next chapter begins."
+      desc: "Surrounded by our dearest family and cherished friends on January 29th, our next chapter begins."
     }
   ],
 
   rec: {
-    day: "Saturday, October 19th",
-    t: "6:30 PM onwards",
-    p: "The Grand Pavilion, The White Church, 125 Rd",
-    dc: "Formal / Black Tie Optional"
+    day: "Friday, 29 January 2027",
+    t: "7:00 PM onwards",
+    p: "Kapidhwaj Party Plot, Vadodara",
+    dc: "Formal / Traditional"
   }
 };
 
@@ -1712,12 +2076,12 @@ DTSTART:${f(T)}
 DTEND:${f(T + 4 * 36e5)}
 SUMMARY:Wedding of ${C.bride} & ${C.groom}
 LOCATION:${C.venue}
-DESCRIPTION:Celebration of the marriage of Kasandra and Imanule at The White Church, 125 Rd
+DESCRIPTION:Celebration of the marriage of Dhruv and Nidhi at Kapidhwaj Party Plot, Vadodara
 END:VEVENT
 END:VCALENDAR`;
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
-  a.download = 'Wedding_Kasandra_and_Imanule.ics';
+  a.download = 'Wedding_Dhruv_and_Nidhi.ics';
   a.click();
   toast('Event added to calendar (.ics)');
 };
