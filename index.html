@@ -448,7 +448,7 @@ h2 {
   text-align: center;
   padding: 5.5vh 20px 3.5vh;
   box-shadow: 0 0 0 4px rgba(251, 243, 234, 0.8), 0 0 0 6px rgba(201, 162, 75, 0.55), 0 16px 36px rgba(80, 20, 30, 0.16);
-  background: radial-gradient(circle at 50% 36%, rgba(255, 252, 248, 0.45) 0%, rgba(251, 243, 234, 0.78) 65%, rgba(246, 228, 220, 0.92) 100%);
+  background: radial-gradient(circle at 50% 42%, rgba(255, 250, 245, 0.62) 0%, rgba(251, 243, 234, 0.84) 68%, rgba(246, 228, 220, 0.94) 100%);
 }
 
 /* Inner dashed geometric frame */
@@ -466,13 +466,14 @@ h2 {
   position: absolute;
   inset: -4%;
   z-index: 0;
-  opacity: 0.52;
+  opacity: 0.40;
 }
 
 .arch .bgp img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 22%;
   filter: blur(1.5px);
   animation: zm 24s ease-in-out infinite alternate;
 }
@@ -539,24 +540,29 @@ h2 {
 
 .fm {
   font-size: clamp(12px, 1.8vh, 14px);
-  color: var(--tx-muted);
+  color: #2b0c13;
+  font-weight: 600;
   line-height: 1.4;
   margin-top: 3px;
   font-family: var(--pf);
   font-style: italic;
+  text-shadow: 0 1px 8px rgba(255, 252, 248, 0.95), 0 0 4px rgba(255, 252, 248, 0.9);
 }
 
 .amp {
   font: italic 500 clamp(28px, 4.5vh, 38px) var(--pf);
-  color: var(--g);
+  color: #8f6315;
   margin: 3px 0;
+  text-shadow: 0 1px 8px rgba(255, 252, 248, 0.9);
 }
 
 .inv {
   font-size: clamp(11.5px, 1.7vh, 13.5px);
   line-height: 1.6;
   max-width: 320px;
-  color: var(--tx);
+  color: #2b0c13;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(255, 252, 248, 0.92);
 }
 
 .ar {
@@ -1101,6 +1107,23 @@ h2 {
 #rc h2 { color: var(--g2); font-size: 28px; }
 #rc p { font-size: 13.5px; line-height: 1.8; color: #f3e4c4; position: relative; }
 
+.rc-seal {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--g);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 0 3px rgba(233, 212, 154, 0.22);
+  background: #141414;
+}
+
+.rc-seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .cr {
   position: absolute;
   width: 110px;
@@ -1363,7 +1386,7 @@ h2 {
 /* ==================== CLOSING ==================== */
 .cl {
   text-align: center;
-  padding: 30px 24px 90px;
+  padding: 30px 24px 42px;
 }
 
 .cl .med {
@@ -1372,6 +1395,76 @@ h2 {
 
 .cl h2 {
   font-size: 28px;
+}
+
+/* ==================== BRAND PROMO FOOTER (WEBLEORA) ==================== */
+.wb-footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 10px 16px 34px;
+}
+
+.wb-divider {
+  width: 110px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--g), transparent);
+  margin: 0 auto 14px;
+}
+
+.wb-promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  max-width: 340px;
+  background: linear-gradient(135deg, var(--w-dark) 0%, var(--w) 100%);
+  border: 1px solid var(--g);
+  border-radius: 14px;
+  padding: 8px 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(70, 15, 28, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wb-promo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(70, 15, 28, 0.3);
+}
+
+.wb-logo-pill {
+  background: #fffcf8;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wb-logo-pill img {
+  height: 25px;
+  width: auto;
+  object-fit: contain;
+}
+
+.wb-promo-txt {
+  text-align: left;
+  line-height: 1.3;
+  display: block;
+}
+
+.wb-promo-title {
+  display: block;
+  font: 600 10.5px/1.3 var(--mo);
+  color: #fff;
+}
+
+.wb-promo-cta {
+  display: block;
+  font: 700 10.5px/1.3 var(--eng);
+  letter-spacing: 0.08em;
+  color: var(--g2);
+  margin-top: 2px;
 }
 </style>
 </head>
@@ -1409,6 +1502,7 @@ h2 {
 <div id="mg"></div>
 <div id="frs"></div>
 
+<audio id="bgm" src="song.mp3" preload="auto" loop></audio>
 <a id="song" title="Play Wedding Song">♪ Our song</a>
 
 <!-- ==================== MAIN APP ==================== -->
@@ -1419,7 +1513,7 @@ h2 {
     <div class="arch">
       <!-- Real Couple Photo with Soft Blur & Ambient Zoom -->
       <div class="bgp">
-        <img src="images/hero_couple.jpg" alt="Dhruv &amp; Nidhi">
+        <img src="images/hero_gujarati.jpg" alt="Dhruv &amp; Nidhi">
       </div>
 
 
@@ -1428,7 +1522,7 @@ h2 {
         <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
       </div>
 
-      <div class="sm hs" style="letter-spacing:0.26em;color:#9b7228;font-weight:600;">YOU ARE INVITED TO THE WEDDING OF</div>
+      <div class="sm hs" style="letter-spacing:0.26em;color:#3d0b17;font-weight:700;text-shadow:0 1px 8px rgba(255,252,248,0.95),0 0 4px rgba(255,252,248,0.95);">YOU ARE INVITED TO THE WEDDING OF</div>
       
       <!-- Bride & Groom -->
       <div>
@@ -1455,7 +1549,7 @@ h2 {
       </div>
 
       <div class="ar hs"></div>
-      <div class="sm hs" style="font-size:10.5px;letter-spacing:0.2em;margin-top:2px;color:var(--g);font-weight:600;">SAVE THE DATE ↓</div>
+      <div class="sm hs" style="font-size:10.5px;letter-spacing:0.2em;margin-top:2px;color:#5e1828;font-weight:700;text-shadow:0 1px 8px rgba(255,252,248,0.95);">SAVE THE DATE ↓</div>
     </div>
   </section>
 
@@ -1536,6 +1630,9 @@ h2 {
       </div>
       <img class="cr" data-r="1" style="left:-30px;top:-30px">
       <img class="cr" data-r="2" style="right:-30px;bottom:-30px">
+      <div class="rc-seal">
+        <img src="images/dn_dark_monogram.jpg" alt="Dhruv &amp; Nidhi Monogram">
+      </div>
       <div class="sm" style="color:var(--g)">You are invited</div>
       <h2>Grand Reception</h2>
       <p id="rp"></p>
@@ -1758,14 +1855,28 @@ h2 {
 
   <!-- CLOSING -->
   <section class="cl">
-    <div class="med rv">
-      <img src="images/wedding_crest.svg" alt="Dhruv &amp; Nidhi Crest">
+    <div class="med rv" style="background:#faf7f2;">
+      <img src="images/dn_wreath.jpg" alt="Dhruv &amp; Nidhi Wreath" style="object-fit:cover;">
     </div>
     
     <h2 class="rv">We can't wait to celebrate with you</h2>
     <p class="rv" style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin:10px 0;font-family:var(--eng);">WITH LOVE</p>
     <p class="rv pf" id="cf" style="font-size:20px;color:var(--w);"></p>
   </section>
+
+  <!-- BRAND PROMO FOOTER -->
+  <footer class="wb-footer rv">
+    <div class="wb-divider"></div>
+    <a class="wb-promo" href="https://webleora.com" target="_blank" rel="noopener">
+      <span class="wb-logo-pill">
+        <img src="images/webleora_logo.png" alt="Webleora">
+      </span>
+      <span class="wb-promo-txt">
+        <span class="wb-promo-title">Want an invite or website like this?</span>
+        <span class="wb-promo-cta">Visit webleora.com ↗</span>
+      </span>
+    </a>
+  </footer>
 
 </main>
 
@@ -2114,6 +2225,7 @@ addEventListener('pointermove', e => {
 $('#intro').addEventListener('click', () => {
   if (!ready || opened) return;
   opened = true;
+  if (typeof startSong === 'function') startSong(false);
   $('#tp').style.opacity = 0;
   $('#bi').classList.add('open');
   spawn(32, 'p');
@@ -2282,46 +2394,44 @@ $('#cp').onclick = () => {
   }
 };
 
-/* ==================== ROMANTIC AUDIO SYNTHESIZER (100% OFFLINE) ==================== */
-let audioCtx = null, playingMusic = false, musicTimer = null;
-const CHORDS = [
-  [261.63, 329.63, 392.00], // C Maj
-  [220.00, 261.63, 329.63], // A min
-  [174.61, 220.00, 261.63], // F Maj
-  [196.00, 246.94, 293.66]  // G Maj
-];
+/* ==================== WEDDING SONG PLAYER (song.mp3) ==================== */
+const bgm = $('#bgm');
+let playingMusic = false;
 
-$('#song').addEventListener('click', () => {
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  
-  playingMusic = !playingMusic;
+function syncSongBtn() {
   $('#song').classList.toggle('playing', playingMusic);
   $('#song').textContent = playingMusic ? '♪ Pause Song' : '♪ Our song';
-  
-  if (playingMusic) {
-    toast('Playing wedding song ♪');
-    let chordIdx = 0;
-    musicTimer = setInterval(() => {
-      const chord = CHORDS[chordIdx % CHORDS.length];
-      chord.forEach((freq, i) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.18);
-        g.gain.setValueAtTime(0.001, audioCtx.currentTime + i * 0.18);
-        g.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + i * 0.18 + 0.12);
-        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + i * 0.18 + 2.2);
-        osc.connect(g);
-        g.connect(audioCtx.destination);
-        osc.start(audioCtx.currentTime + i * 0.18);
-        osc.stop(audioCtx.currentTime + i * 0.18 + 2.4);
-      });
-      chordIdx++;
-    }, 1800);
+}
+
+function startSong(notify = true) {
+  if (!bgm) return;
+  bgm.volume = 0.85;
+  const p = bgm.play();
+  if (p && p.then) {
+    p.then(() => {
+      playingMusic = true;
+      syncSongBtn();
+      if (notify) toast('Playing wedding song ♪');
+    }).catch(() => {
+      playingMusic = false;
+      syncSongBtn();
+    });
   } else {
-    clearInterval(musicTimer);
+    playingMusic = true;
+    syncSongBtn();
+    if (notify) toast('Playing wedding song ♪');
+  }
+}
+
+$('#song').addEventListener('click', () => {
+  if (!bgm) return;
+  if (playingMusic || !bgm.paused) {
+    bgm.pause();
+    playingMusic = false;
+    syncSongBtn();
     toast('Music paused');
+  } else {
+    startSong(true);
   }
 });
 
