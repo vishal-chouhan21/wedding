@@ -297,20 +297,25 @@ h2 {
   left: 0;
   right: 0;
   bottom: 8%;
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+  margin: 0 auto;
+  z-index: 5;
   text-align: center;
-  font: italic 700 26px var(--pf);
+  font: italic 700 clamp(18px, 4.8vw, 24px) var(--pf);
   color: var(--w);
   opacity: 0;
   transition: opacity 0.6s;
   animation: pu 1.6s ease-in-out infinite;
   text-shadow: 0 2px 8px rgba(110,31,47,0.18);
-  background: rgba(255,252,248,0.72);
+  background: rgba(255,252,248,0.88);
   border: 1.5px solid var(--g);
   border-radius: 50px;
-  padding: 14px 32px;
-  margin: 0 32px;
+  padding: 11px clamp(20px, 5vw, 30px);
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 18px rgba(110,31,47,0.15);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 @keyframes pu { 50% { transform: scale(1.06); } }
@@ -572,81 +577,61 @@ h2 {
 .hs { opacity: 0; transition: opacity 1s; }
 .live .hs { opacity: 1; }
 
-/* ==================== SAVE THE DATE & PULL TASSEL ==================== */
-.rod {
-  position: relative;
-  width: 88vw;
-  max-width: 360px;
-  height: 13px;
-  margin: 0 auto;
-  border-radius: 6px;
-  background: linear-gradient(#f4e1a4, #b88a2c 55%, #8a6420);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-
-.rod:before, .rod:after {
-  content: "";
-  position: absolute;
-  top: -3px;
-  width: 15px;
-  height: 19px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #f4e1a4, #9c7220);
-}
-
-.rod:before { left: -8px; }
-.rod:after { right: -8px; }
-
 /* ==================== SAVE THE DATE — INDIAN SCROLL REDESIGN ==================== */
 #sc {
   position: relative;
-  width: 88vw;
-  max-width: 380px;
+  width: calc(100% - 44px);
+  max-width: 340px;
   margin: 0 auto;
-  height: 400px;
+  height: 195px;
 }
 
-/* Two gold rods (top + bottom of scroll) */
+/* Top gold rod & moving bottom roll */
 .rod {
-  width: 90vw;
-  max-width: 380px;
-  height: 16px;
+  width: calc(100% - 20px);
+  max-width: 364px;
+  height: 15px;
   margin: 0 auto;
   border-radius: 8px;
   background: linear-gradient(180deg, #f4e1a4 0%, #d4a832 40%, #b88a2c 60%, #e8c97a 100%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,220,0.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.28), inset 0 1px 2px rgba(255,255,220,0.5);
   position: relative;
   z-index: 3;
 }
 
-.rod:before, .rod:after {
+.rod:before, .rod:after,
+#roll:before, #roll:after {
   content: "";
   position: absolute;
-  top: -5px;
-  width: 26px;
-  height: 26px;
+  top: -4.5px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #f4e1a4, #9c7220);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+  background: radial-gradient(circle at 35% 30%, #f7e6b2, #9c7220);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.32);
 }
 
-.rod:before { left: -13px; }
-.rod:after { right: -13px; }
+.rod:before, #roll:before { left: -10px; }
+.rod:after, #roll:after { right: -10px; }
 
 #pp {
   position: absolute;
-  inset: 0 0 auto 0;
-  height: 380px;
-  background: linear-gradient(180deg, #fffef9 0%, #fdf5e4 40%, #f9ecd2 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  background: linear-gradient(180deg, #fffef9 0%, #fdf5e4 45%, #f9ecd2 100%);
   clip-path: inset(0 0 100% 0);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  padding: 24px 20px 20px;
+  padding: 24px 16px 28px;
   border-left: 2px solid var(--g);
   border-right: 2px solid var(--g);
+  box-shadow: inset 0 0 28px rgba(201,162,75,0.24);
+  z-index: 2;
 }
 
 #pp:before {
@@ -659,15 +644,28 @@ h2 {
 
 #pp .rc {
   position: absolute;
-  width: 50px;
-  opacity: 0.6;
+  width: 44px;
+  opacity: 0.38;
+  pointer-events: none;
 }
 
-/* Ganesh icon at top of scroll */
+/* Ganesh medallion at top of scroll */
 .ganesh-icon {
   margin-bottom: 6px;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ganesh-icon img {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--g);
+  box-shadow: 0 3px 12px rgba(110,31,47,0.25);
+  background: #2b0a14;
 }
 
 /* Day label above date */
@@ -701,7 +699,7 @@ h2 {
 
 /* Big date number */
 .dt {
-  font: 700 56px/1 var(--pf);
+  font: 700 52px/1 var(--pf);
   color: var(--w);
   margin: 2px 0;
 }
@@ -712,7 +710,7 @@ h2 {
   letter-spacing: 0.22em;
   color: var(--g);
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .std-time {
@@ -724,31 +722,32 @@ h2 {
 /* Countdown boxes */
 #cd {
   display: flex;
-  gap: 7px;
+  gap: 6px;
   justify-content: center;
-  margin: 8px 0 14px;
+  margin: 6px 0 14px;
+  width: 100%;
 }
 
 .cd-box {
   background: var(--w);
   border: 1px solid var(--g);
   border-radius: 8px;
-  padding: 7px 10px 5px;
-  min-width: 56px;
+  padding: 6px 8px 5px;
+  min-width: 50px;
   text-align: center;
-  box-shadow: 0 3px 8px rgba(110,31,47,0.25);
+  box-shadow: 0 3px 8px rgba(110,31,47,0.22);
 }
 
 .cd-num {
-  font: 700 20px/1 var(--pf);
+  font: 700 18px/1 var(--pf);
   color: var(--g2);
   display: block;
 }
 
 .cd-label {
   font: 700 7px var(--eng);
-  letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.8);
   display: block;
   margin-top: 3px;
   text-transform: uppercase;
@@ -758,19 +757,22 @@ h2 {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font: 700 11.5px var(--eng);
+  justify-content: center;
+  gap: 8px;
+  font: 700 11px var(--eng);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--iv);
   background: var(--w);
   border: 1.5px solid var(--g);
   border-radius: 24px;
-  padding: 12px 22px;
+  padding: 11px 20px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(110, 31, 47, 0.3);
+  box-shadow: 0 4px 14px rgba(110, 31, 47, 0.28);
   transition: all 0.25s ease;
+  position: relative;
+  z-index: 3;
 }
 
 .btn:hover {
@@ -791,30 +793,31 @@ h2 {
 /* Scroll roll bar (bottom of visible scroll) */
 #roll {
   position: absolute;
-  left: -4px;
-  right: -4px;
-  top: 0;
-  height: 16px;
+  left: -12px;
+  right: -12px;
+  top: -1px;
+  height: 15px;
   border-radius: 8px;
   background: linear-gradient(180deg, #f4e1a4 0%, #d4a832 40%, #b88a2c 60%, #e8c97a 100%);
-  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3);
-  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), inset 0 1px 2px rgba(255,255,220,0.5);
+  z-index: 5;
 }
 
-/* Tassel redesign — centered below scroll */
+/* Tassel redesign — centered below #roll without translateX conflict */
 #tas {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 8px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 11px;
   width: 44px;
-  height: 110px;
+  height: 98px;
   touch-action: none;
   cursor: grab;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 5;
+  z-index: 4;
 }
 
 #tas i {
@@ -837,8 +840,8 @@ h2 {
 }
 
 #tas b {
-  width: 28px;
-  height: 70px;
+  width: 26px;
+  height: 66px;
   border-radius: 10% 10% 50% 50%;
   background: repeating-linear-gradient(90deg, #8a1a30 0 3.5px, #c9a24b 3.5px 6px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -854,19 +857,19 @@ h2 {
 
 #fg {
   position: absolute;
-  left: 50%;
-  transform: translateX(-130%);
-  top: 60px;
-  font-size: 28px;
+  left: calc(50% - 58px);
+  top: 40px;
+  font-size: 26px;
   pointer-events: none;
   animation: pl 1.8s ease-in-out infinite;
+  z-index: 6;
 }
 
 @keyframes pl {
-  0% { transform: translateX(-130%) translateY(0); opacity: 0; }
+  0% { transform: translateY(0); opacity: 0; }
   15% { opacity: 1; }
-  70% { transform: translateX(-130%) translateY(80px); opacity: 1; }
-  100% { transform: translateX(-130%) translateY(80px); opacity: 0; }
+  70% { transform: translateY(68px); opacity: 1; }
+  100% { transform: translateY(68px); opacity: 0; }
 }
 
 #pt {
@@ -874,7 +877,7 @@ h2 {
   left: 0;
   width: 100%;
   text-align: center;
-  top: 210px;
+  top: 146px;
   font: 600 10px var(--eng);
   letter-spacing: 0.22em;
   color: var(--w);
@@ -1458,24 +1461,27 @@ h2 {
 
   <!-- SAVE THE DATE (SCROLL) -->
   <section id="std">
+    <h2 class="rv" id="std-head" style="font-style:italic;margin-bottom:4px;">Save the Date</h2>
+    <div class="std-divider rv" id="std-div" style="margin-bottom:18px;"><span>◆</span></div>
+
     <div class="rod"></div>
     <div id="sc">
       <div id="pp">
-        <img class="rc" data-r="0" style="left:-10px;top:-10px;opacity:0.5">
-        <img class="rc" data-r="0" style="right:-10px;bottom:-10px;opacity:0.5">
+        <img class="rc" data-r="0" style="left:-10px;top:-10px;">
+        <img class="rc" data-r="0" style="right:-10px;bottom:-10px;">
 
-        <!-- Ganesh Icon -->
+        <!-- Ganesh Medallion -->
         <div class="ganesh-icon">
-          <img src="images/ganesh.png" alt="Lord Ganesha" style="width:72px;height:72px;object-fit:cover;border-radius:12px;border:2px solid var(--g);box-shadow:0 4px 16px rgba(110,31,47,0.25);">
+          <img src="images/ganesh.png" alt="Lord Ganesha">
         </div>
 
         <!-- Save the Date title -->
-        <div style="font:italic 700 26px var(--pf);color:var(--w);margin:2px 0;">Save the Date</div>
+        <div style="font:italic 700 25px/1.15 var(--pf);color:var(--w);margin-top:2px;">Save the Date</div>
         <div class="std-divider"><span>◆</span></div>
 
         <!-- Day -->
         <div class="std-day" id="dp2">FRIDAY</div>
-        <div style="width:60px;height:1px;background:var(--g);margin:3px auto;"></div>
+        <div style="width:56px;height:1px;background:var(--g);margin:4px auto;"></div>
 
         <!-- Big Date -->
         <div class="dt" id="dd">29</div>
@@ -1496,7 +1502,7 @@ h2 {
         </div>
 
         <!-- Add to Calendar button -->
-        <span class="btn" id="cal">🗓 Add to Calendar</span>
+        <span class="btn" id="cal"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Add to Calendar</span>
       </div>
 
       <div id="roll"></div>
@@ -1504,8 +1510,6 @@ h2 {
       <div id="tas"><i></i><b></b></div>
       <div id="fg">👆</div>
     </div>
-    <!-- Bottom rod of scroll -->
-    <div class="rod" style="margin-top:0;position:relative;z-index:3;"></div>
   </section>
 
   <!-- WEDDING FESTIVITIES CAROUSEL -->
@@ -2154,16 +2158,19 @@ addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ==================== SCROLL PULL TASSEL ==================== */
-const pp = $('#pp'), roll = $('#roll'), tas = $('#tas'), H = 400;
+const scEl = $('#sc'), pp = $('#pp'), roll = $('#roll'), tas = $('#tas');
+const getH = () => Math.max(pp.offsetHeight || 0, 440);
 let p = 0, done = false, drag = null;
 
 function setP(v) {
   p = Math.max(0, Math.min(1, v));
+  const H = getH();
   pp.style.clipPath = `inset(0 0 ${(1 - p) * 100}% 0)`;
   const y = p * H;
   roll.style.transform = `translateY(${y}px)`;
   tas.style.transform = `translateY(${y}px)`;
-  $('#pt').style.opacity = 1 - p * 3;
+  scEl.style.height = Math.max(195, Math.ceil(y + 108)) + 'px';
+  $('#pt').style.opacity = Math.max(0, 1 - p * 3);
 }
 
 function animTo(to, cb) {
@@ -2196,14 +2203,14 @@ tas.addEventListener('pointerdown', e => {
 tas.addEventListener('pointermove', e => {
   if (!drag) return;
   drag.m = Math.max(drag.m, Math.abs(e.clientY - drag.y));
-  setP(drag.p0 + (e.clientY - drag.y) / H);
+  setP(drag.p0 + (e.clientY - drag.y) / getH());
 });
 
 tas.addEventListener('pointerup', () => {
   if (!drag) return;
   const m = drag.m;
   drag = null;
-  if (m < 6 || p > 0.45) reveal();
+  if (m < 6 || p > 0.4) reveal();
   else animTo(0);
 });
 
@@ -2211,6 +2218,11 @@ tas.addEventListener('pointercancel', () => {
   drag = null;
   if (!done) animTo(0);
 });
+
+addEventListener('resize', () => setP(p));
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => setP(p));
+}
 
 /* ==================== COUNTDOWN & CALENDAR ==================== */
 const T = new Date(C.date).getTime();
