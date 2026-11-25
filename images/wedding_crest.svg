@@ -26,24 +26,11 @@
   <circle cx="150" cy="150" r="137" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.6"/>
 
   <!-- Outer Solid Hexagon -->
-  <!-- Center is (150, 150), radius ~95 -->
-  <polygon points="
-    150,55 
-    232,102 
-    232,198 
-    150,245 
-    68,198 
-    68,102" 
+  <polygon points="150,55 232,102 232,198 150,245 68,198 68,102" 
     fill="none" stroke="url(#gold)" stroke-width="3" stroke-linejoin="round"/>
 
-  <!-- Inner Dashed Hexagon (radius ~86) -->
-  <polygon points="
-    150,64 
-    224,107 
-    224,193 
-    150,236 
-    76,193 
-    76,107" 
+  <!-- Inner Dashed Hexagon -->
+  <polygon points="150,64 224,107 224,193 150,236 76,193 76,107" 
     fill="none" stroke="url(#gold)" stroke-width="1.6" stroke-dasharray="5 3.5" stroke-linejoin="round"/>
 
   <!-- Gold Accent Dots on Hexagon -->
@@ -59,7 +46,7 @@
   <circle cx="150" cy="150" r="34" fill="none" stroke="#d96a84" stroke-width="2.2" stroke-dasharray="24 4 18 3" opacity="0.85"/>
   <circle cx="150" cy="150" r="38" fill="none" stroke="#e898aa" stroke-width="1" stroke-dasharray="14 5 20 4" opacity="0.5"/>
 
-  <!-- Couple Monogram: K & I -->
-  <text x="150" y="146" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700" fill="#6e1f2f" letter-spacing="1">K &amp; I</text>
-  <text x="150" y="165" text-anchor="middle" font-family="'Montserrat', 'Cinzel', sans-serif" font-size="8.5" font-weight="600" fill="#b88a2c" letter-spacing="3.5">OCTOBER 19</text>
+  <!-- Couple Monogram: D & N -->
+  <text x="150" y="146" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700" fill="#6e1f2f" letter-spacing="1">D &amp; N</text>
+  <text x="150" y="165" text-anchor="middle" font-family="'Montserrat', 'Cinzel', sans-serif" font-size="8.5" font-weight="600" fill="#b88a2c" letter-spacing="3.5">JANUARY 29</text>
 </svg>
