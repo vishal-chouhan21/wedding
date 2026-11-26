@@ -521,10 +521,10 @@ h2 {
 }
 
 .nm {
-  font: 700 clamp(32px, 5.8vh, 52px)/1.1 var(--pf);
+  font: 700 clamp(25px, min(6.6vw, 5vh), 44px)/1.15 var(--pf);
   color: var(--w);
-  min-height: 1.1em;
-  letter-spacing: 0.02em;
+  min-height: 1.15em;
+  letter-spacing: 0.01em;
 }
 
 .nm span {
@@ -539,11 +539,13 @@ h2 {
 }
 
 .fm {
-  font-size: clamp(12px, 1.8vh, 14px);
+  font-size: clamp(11.5px, 1.7vh, 13.5px);
   color: #2b0c13;
   font-weight: 600;
   line-height: 1.4;
-  margin-top: 3px;
+  max-width: 340px;
+  margin: 4px auto 0;
+  padding: 0 6px;
   font-family: var(--pf);
   font-style: italic;
   text-shadow: 0 1px 8px rgba(255, 252, 248, 0.95), 0 0 4px rgba(255, 252, 248, 0.9);
@@ -1002,45 +1004,6 @@ h2 {
   flex: none;
 }
 
-/* Story Full Photograph Cards */
-.it > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 45px 18px 20px;
-  background: linear-gradient(transparent, rgba(50, 8, 18, 0.65) 35%, rgba(40, 5, 14, 0.95));
-  color: var(--iv);
-  text-align: center;
-}
-
-.cap-sub {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--g2);
-  font-family: var(--eng);
-  margin-bottom: 3px;
-}
-
-.cap-title {
-  font: 700 21px var(--pf);
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-.cap-desc {
-  font-size: 12px;
-  line-height: 1.55;
-  color: #f7e6e6;
-}
-
 .dots {
   display: flex;
   gap: 7px;
@@ -1206,7 +1169,7 @@ h2 {
   transform: translate(-50%, 0);
 }
 
-/* ==================== WEDDING PROGRAMME SECTION ==================== */
+/* ==================== WEDDING PROGRAMME SLIDER SECTION ==================== */
 #prog {
   background: linear-gradient(180deg, #fff9f4 0%, #fbeae8 100%);
   padding: 48px 16px;
@@ -1214,7 +1177,7 @@ h2 {
 
 .prog-title-wrap {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .prog-title-wrap h2 {
@@ -1239,50 +1202,198 @@ h2 {
   margin: 0 auto;
 }
 
-.prog-day {
-  background: #fff;
-  border: 1.5px solid var(--g);
-  border-radius: 18px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(110,31,47,0.08);
-}
-
-.prog-day-header {
-  background: linear-gradient(90deg, var(--w-dark) 0%, var(--w) 100%);
-  color: #fff;
-  padding: 14px 20px;
+/* Day filter pills */
+.prog-tabs {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+  gap: 5px;
+  justify-content: center;
+  max-width: 460px;
+  margin: 0 auto 16px;
 }
 
-.prog-day-header .di {
-  font-size: 20px;
+.prog-tab {
+  font: 600 clamp(9px, 2.3vw, 10px)/1 var(--eng);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px clamp(7px, 2vw, 11px);
+  border-radius: 20px;
+  border: 1px solid rgba(201, 162, 75, 0.75);
+  background: rgba(255, 252, 248, 0.92);
+  color: var(--w);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
 }
 
-.prog-day-header h3 {
-  font: 600 15px/1.3 var(--eng);
-  letter-spacing: 0.08em;
+.prog-tab:hover {
+  border-color: var(--w);
+  background: #fff;
 }
 
-.prog-day-header .dv {
-  font-size: 11px;
-  opacity: 0.8;
-  font-family: var(--mo);
-  font-weight: 500;
-  margin-top: 2px;
+.prog-tab.a {
+  background: var(--w);
+  color: var(--g2);
+  border-color: var(--g);
+  box-shadow: 0 3px 10px rgba(110, 31, 47, 0.22);
+}
+
+/* Slider frame & viewport */
+.prog-slider-wrap {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.prog-viewport {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1.5px solid var(--g);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(110, 31, 47, 0.14);
+  touch-action: pan-y;
+}
+
+.prog-track {
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.45s cubic-bezier(0.22, 0.8, 0.22, 1);
+  will-change: transform;
+}
+
+.prog-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+/* Card Hero Photo Banner */
+.prog-hero {
+  position: relative;
+  height: 185px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--w-dark);
+}
+
+.prog-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.prog-hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(35, 5, 12, 0.18) 0%, rgba(45, 8, 18, 0.48) 52%, rgba(56, 10, 22, 0.94) 100%);
+}
+
+.prog-badge {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 2;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font: 700 9.5px/1 var(--eng);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--g2);
+  background: rgba(50, 10, 20, 0.72);
+  border: 1px solid rgba(201, 162, 75, 0.65);
+  backdrop-filter: blur(4px);
+}
+
+.prog-hero-txt {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+  z-index: 2;
+  color: #fff;
+}
+
+.prog-hero-txt h3 {
+  font: 700 18px/1.25 var(--pf);
+  color: var(--g2);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.prog-hero-txt .dv {
+  font: 500 11.5px/1.35 var(--mo);
+  color: #f9ebe6;
+  margin-top: 3px;
 }
 
 .prog-events {
-  padding: 16px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 14px 18px;
+}
+
+.prog-story {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fffaf5 0%, #fdf0ed 100%);
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  font: italic 13px/1.6 var(--pf);
+  color: var(--tx);
+  text-align: center;
+}
+
+.prog-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.prog-chip {
+  font: 600 10.5px/1 var(--mo);
+  color: var(--w);
+  background: #fff9f5;
+  border: 1px solid rgba(201, 162, 75, 0.6);
+  border-radius: 20px;
+  padding: 6px 11px;
+}
+
+.prog-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  border-top: 1.5px solid #f0dbd8;
+  background: #fff8f6;
+}
+
+.prog-meta-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1.5px solid var(--g);
+  background: linear-gradient(135deg, var(--w-dark), var(--w));
+  color: var(--g2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
 .prog-event-row {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
-  padding: 9px 0;
+  padding: 6.5px 0;
   border-bottom: 1px dashed #e8d5d0;
 }
 
@@ -1291,8 +1402,8 @@ h2 {
 }
 
 .prog-time {
-  min-width: 90px;
-  font: 700 12px/1.4 var(--eng);
+  min-width: 96px;
+  font: 700 11.5px/1.4 var(--eng);
   color: var(--w);
   letter-spacing: 0.04em;
 }
@@ -1313,16 +1424,40 @@ h2 {
 .prog-qr-block {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 14px 18px 16px;
+  gap: 14px;
+  padding: 12px 16px 14px;
   border-top: 1.5px solid #f0dbd8;
   background: #fff8f6;
 }
 
 .prog-qr-block img {
-  width: 80px;
-  height: 80px;
+  width: 68px;
+  height: 68px;
   border-radius: 10px;
+  border: 1.5px solid var(--g);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.prog-qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px 16px 14px;
+  border-top: 1.5px solid #f0dbd8;
+  background: #fff8f6;
+}
+
+.prog-qr-mini {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.prog-qr-mini img {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
   border: 1.5px solid var(--g);
   object-fit: cover;
   flex-shrink: 0;
@@ -1330,11 +1465,12 @@ h2 {
 
 .prog-qr-info {
   flex: 1;
+  min-width: 0;
 }
 
 .prog-qr-label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--g);
   font-family: var(--eng);
@@ -1343,24 +1479,40 @@ h2 {
 }
 
 .prog-qr-venue {
-  font: 600 14px/1.4 var(--pf);
+  font: 600 13.5px/1.3 var(--pf);
   color: var(--w);
 }
 
 .prog-qr-hint {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--tx-muted);
-  margin-top: 3px;
+  margin-top: 2px;
+}
+
+#dp-prog i {
+  cursor: pointer;
+}
+
+.prog-swipe-hint {
+  text-align: center;
+  font: 600 10px/1 var(--eng);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tx-muted);
+  margin-top: 10px;
 }
 
 /* Delicious Foods footer */
 .prog-footer {
   text-align: center;
-  margin-top: 24px;
-  padding: 16px;
+  max-width: 440px;
+  margin: 20px auto 0;
+  padding: 15px 16px;
   background: linear-gradient(90deg, var(--w-dark), var(--w));
-  border-radius: 14px;
+  border: 1px solid var(--g);
+  border-radius: 16px;
   color: #fff;
+  box-shadow: 0 8px 20px rgba(70, 15, 28, 0.16);
 }
 
 .prog-footer .pf-text {
@@ -1526,15 +1678,15 @@ h2 {
       
       <!-- Bride & Groom -->
       <div>
-        <div class="nm" id="bride_name">Dhruv</div>
-        <div class="fm hs">Son of Mr. &amp; Mrs. Chouhan</div>
+        <div class="nm" id="bride_name">Dhruv H Pandya</div>
+        <div class="fm hs">Son of Hardik Saujanya Pandya &amp; Mansi Hardik Pandya</div>
       </div>
 
       <div class="amp hs">&amp;</div>
 
       <div>
-        <div class="nm" id="groom_name">Nidhi</div>
-        <div class="fm hs">Daughter of Mr. &amp; Mrs. Patel</div>
+        <div class="nm" id="groom_name">Nidhi A Jani</div>
+        <div class="fm hs">Daughter of Ashwin J Jani and Harsha A Jani</div>
       </div>
 
       <div class="inv hs">
@@ -1614,19 +1766,11 @@ h2 {
     <div class="dots" id="d1"></div>
   </section>
 
-  <!-- OUR STORY CAROUSEL -->
-  <section>
-    <h2 class="rv">Our Story</h2>
-    <div class="sub rv">Moments we treasure</div>
-    <div class="car" id="c2"></div>
-    <div class="dots" id="d2"></div>
-  </section>
-
   <!-- GRAND RECEPTION -->
   <section>
     <div id="rc" class="rv">
       <div class="rc-bg">
-        <img src="images/grand_reception.jpg" alt="Grand Reception">
+        <img src="images/prog_reception.jpg" alt="Grand Reception">
       </div>
       <img class="cr" data-r="1" style="left:-30px;top:-30px">
       <img class="cr" data-r="2" style="right:-30px;bottom:-30px">
@@ -1639,7 +1783,7 @@ h2 {
     </div>
   </section>
 
-  <!-- WEDDING PROGRAMME SECTION -->
+  <!-- WEDDING PROGRAMME SECTION (SLIDER WITH IMAGES & QR) -->
   <section id="prog">
     <div class="prog-title-wrap rv">
       <div class="prog-ornament">❧ ✦ ❧</div>
@@ -1649,172 +1793,266 @@ h2 {
       <div class="prog-tagline">With love and blessings, we look forward to celebrating<br>these auspicious moments with family and friends.</div>
     </div>
 
-    <!-- Sunday, 24 Jan -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">🎵</div>
-        <div>
-          <h3>Sunday, 24 January 2027</h3>
-          <div class="dv">Sheetal Westpark / Venus Ultima</div>
-        </div>
-      </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">7:15 PM onwards</div>
-          <div class="prog-name"><strong>Bethak</strong> with Delicious Food and Mesmerising Music</div>
-        </div>
-      </div>
-      <div class="prog-qr-block">
-        <img src="images/qr_sheetal.jpg" alt="Sheetal Westpark QR">
-        <div class="prog-qr-info">
-          <div class="prog-qr-label">Scan for Directions</div>
-          <div class="prog-qr-venue">Sheetal Westpark</div>
-          <div class="prog-qr-hint">Scan QR to open in Maps</div>
-        </div>
-      </div>
+    <!-- Day Selector Tabs -->
+    <div class="prog-tabs rv" id="prog-tabs" role="tablist" aria-label="Wedding Days">
+      <button type="button" class="prog-tab a" data-slide="0">Sun 24</button>
+      <button type="button" class="prog-tab" data-slide="1">Mon 25</button>
+      <button type="button" class="prog-tab" data-slide="2">Tue 26</button>
+      <button type="button" class="prog-tab" data-slide="3">Wed 27</button>
+      <button type="button" class="prog-tab" data-slide="4">Thu 28</button>
+      <button type="button" class="prog-tab" data-slide="5">Fri 29</button>
     </div>
 
-    <!-- Monday, 25 Jan -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">🎶</div>
-        <div>
-          <h3>Monday, 25 January 2027</h3>
-        </div>
-      </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">7:00 PM onwards</div>
-          <div class="prog-name"><strong>Bethak</strong> with Delicious Food</div>
-        </div>
-      </div>
-    </div>
+    <!-- Interactive Slider -->
+    <div class="prog-slider-wrap rv">
+      <div class="prog-viewport" id="prog-vp">
+        <div class="prog-track" id="prog-track">
 
-    <!-- Tuesday, 26 Jan -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">🌿</div>
-        <div>
-          <h3>Tuesday, 26 January 2027</h3>
-        </div>
-      </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">4:00 PM onwards</div>
-          <div class="prog-name"><strong>Mehndi</strong> followed with Delicious Food</div>
-        </div>
-      </div>
-    </div>
+          <!-- Slide 1: Sunday, 24 Jan -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_bethak.jpg" alt="Bethak Musical Evening">
+              <span class="prog-badge">Day 1 of 6 · 🎵 Bethak</span>
+              <div class="prog-hero-txt">
+                <h3>Sunday, 24 January 2027</h3>
+                <div class="dv">Sheetal Westpark / Venus Ultima</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">7:15 PM onwards</div>
+                <div class="prog-name"><strong>Bethak</strong> with Delicious Food and Mesmerising Music</div>
+              </div>
+              <div class="prog-story">
+                “As the wedding week begins, both families gather under one roof for an evening of soulful melodies, timeless Gujarati folk tunes, heartfelt laughter, and delectable traditional flavours.”
+              </div>
+              <div class="prog-highlights">
+                <span class="prog-chip">🎵 Live Melodious Music</span>
+                <span class="prog-chip">🍽️ Festive Dinner</span>
+                <span class="prog-chip">✨ Warm Gatherings</span>
+              </div>
+            </div>
+            <div class="prog-qr-grid">
+              <div class="prog-qr-mini">
+                <img src="images/qr_sheetal.jpg" alt="Sheetal Westpark QR">
+                <div class="prog-qr-info">
+                  <div class="prog-qr-label">Scan QR</div>
+                  <div class="prog-qr-venue" style="font-size:12px;">Sheetal Westpark</div>
+                </div>
+              </div>
+              <div class="prog-qr-mini">
+                <img src="images/qr_venus.jpg" alt="Venus Ultima QR">
+                <div class="prog-qr-info">
+                  <div class="prog-qr-label">Scan QR</div>
+                  <div class="prog-qr-venue" style="font-size:12px;">Venus Ultima</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Wednesday, 27 Jan - Chanchal Baug -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">🕉️</div>
-        <div>
-          <h3>Wednesday, 27 January 2027</h3>
-          <div class="dv">Chanchal Baug Party Plot</div>
-        </div>
-      </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">9:00 AM</div>
-          <div class="prog-name"><strong>Ganesh Sthapna</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">9:30 AM</div>
-          <div class="prog-name"><strong>Mandap Muhurat</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">10:30 AM</div>
-          <div class="prog-name"><strong>Mameru</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">11:15 AM</div>
-          <div class="prog-name"><strong>Lagan Pado</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">11:45 AM</div>
-          <div class="prog-name"><strong>Haldi Ceremony</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">12:30 PM</div>
-          <div class="prog-name"><strong>Lunch</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">7:00 PM onwards</div>
-          <div class="prog-name"><strong>Melodious Garba Night 💃</strong></div>
-        </div>
-      </div>
-      <div class="prog-qr-block">
-        <img src="images/qr_chanchal.jpg" alt="Chanchal Baug QR">
-        <div class="prog-qr-info">
-          <div class="prog-qr-label">Scan for Directions</div>
-          <div class="prog-qr-venue">Chanchal Baug Party Plot</div>
-          <div class="prog-qr-hint">Scan QR to open in Maps</div>
-        </div>
-      </div>
-    </div>
+          <!-- Slide 2: Monday, 25 Jan -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_feast.jpg" alt="Bethak Hospitality Evening">
+              <span class="prog-badge">Day 2 of 6 · 🎶 Bethak</span>
+              <div class="prog-hero-txt">
+                <h3>Monday, 25 January 2027</h3>
+                <div class="dv">Family Gathering &amp; Hospitality</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">7:00 PM onwards</div>
+                <div class="prog-name"><strong>Bethak</strong> with Delicious Food</div>
+              </div>
+              <div class="prog-story">
+                “A joyful evening to unwind with loved ones, share cherished memories, and savour authentic Gujarati hospitality as elders shower their warm blessings on Dhruv &amp; Nidhi.”
+              </div>
+              <div class="prog-highlights">
+                <span class="prog-chip">🪔 Warm Hospitality</span>
+                <span class="prog-chip">🍲 Traditional Feast</span>
+                <span class="prog-chip">💛 Family Bonding</span>
+              </div>
+            </div>
+            <div class="prog-meta-bar">
+              <div class="prog-meta-ic">🪔</div>
+              <div class="prog-qr-info">
+                <div class="prog-qr-label">Hospitality &amp; Dress Note</div>
+                <div class="prog-qr-venue" style="font-size:13px;">Traditional / Festive Ethnic</div>
+                <div class="prog-qr-hint">Followed by Delicious Foods</div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Thursday, 28 Jan - Kapidhwaj -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">🌸</div>
-        <div>
-          <h3>Thursday, 28 January 2027</h3>
-          <div class="dv">Kapidhwaj Party Plot</div>
-        </div>
-      </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">1:45 PM</div>
-          <div class="prog-name"><strong>Jan Prasthan</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">3:30 PM</div>
-          <div class="prog-name"><strong>Expected Arrival</strong> at Kapidhwaj</div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">3:30 – 5:30 PM</div>
-          <div class="prog-name"><strong>Band Baja Procession</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">5:30 PM</div>
-          <div class="prog-name"><strong>Entry into the Venue &amp; Pokwanu</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">6:15 PM</div>
-          <div class="prog-name"><strong>Hastmedap Ceremony</strong></div>
-        </div>
-        <div class="prog-event-row">
-          <div class="prog-time">11:30 PM</div>
-          <div class="prog-name"><strong>Welcoming the Newlyweds</strong> at Our Home 🏠</div>
-        </div>
-      </div>
-      <div class="prog-qr-block">
-        <img src="images/qr_kapidhwaj.jpg" alt="Kapidhwaj QR">
-        <div class="prog-qr-info">
-          <div class="prog-qr-label">Scan for Directions</div>
-          <div class="prog-qr-venue">Kapidhwaj Party Plot</div>
-          <div class="prog-qr-hint">Scan QR to open in Maps</div>
-        </div>
-      </div>
-    </div>
+          <!-- Slide 3: Tuesday, 26 Jan -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_mehndi.jpg" alt="Mehndi Ceremony">
+              <span class="prog-badge">Day 3 of 6 · 🌿 Mehndi</span>
+              <div class="prog-hero-txt">
+                <h3>Tuesday, 26 January 2027</h3>
+                <div class="dv">Henna, Joy &amp; Festivities</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">4:00 PM onwards</div>
+                <div class="prog-name"><strong>Mehndi</strong> followed with Delicious Food</div>
+              </div>
+              <div class="prog-story">
+                “Celebrating hues of rich henna, playful wedding folk songs, and joyous afternoon warmth. Adorn your hands with auspicious mehndi designs and enjoy festive treats together.”
+              </div>
+              <div class="prog-highlights">
+                <span class="prog-chip">🌿 Bridal Henna Art</span>
+                <span class="prog-chip">🎶 Wedding Folk Songs</span>
+                <span class="prog-chip">🍬 Festive Delights</span>
+              </div>
+            </div>
+            <div class="prog-meta-bar">
+              <div class="prog-meta-ic">🌿</div>
+              <div class="prog-qr-info">
+                <div class="prog-qr-label">Ceremony Note</div>
+                <div class="prog-qr-venue" style="font-size:13px;">Green, Yellow &amp; Pastel Hues</div>
+                <div class="prog-qr-hint">Followed by Delicious Foods</div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Friday, 29 Jan - Reception -->
-    <div class="prog-day rv">
-      <div class="prog-day-header">
-        <div class="di">✨</div>
-        <div>
-          <h3>Friday, 29 January 2027</h3>
-          <div class="dv">Reception — Kapidhwaj Party Plot</div>
+          <!-- Slide 4: Wednesday, 27 Jan - Chanchal Baug -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_garba.jpg" alt="Haldi and Melodious Garba Night">
+              <span class="prog-badge">Day 4 of 6 · 💃 Haldi &amp; Garba</span>
+              <div class="prog-hero-txt">
+                <h3>Wednesday, 27 January 2027</h3>
+                <div class="dv">Chanchal Baug Party Plot</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">9:00 AM</div>
+                <div class="prog-name"><strong>Ganesh Sthapna</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">9:30 AM</div>
+                <div class="prog-name"><strong>Mandap Muhurat</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">10:30 AM</div>
+                <div class="prog-name"><strong>Mameru</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">11:15 AM</div>
+                <div class="prog-name"><strong>Lagan Pado</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">11:45 AM</div>
+                <div class="prog-name"><strong>Haldi Ceremony</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">12:30 PM</div>
+                <div class="prog-name"><strong>Lunch</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">7:00 PM onwards</div>
+                <div class="prog-name"><strong>Melodious Garba Night 💃</strong></div>
+              </div>
+            </div>
+            <div class="prog-qr-block">
+              <img src="images/qr_chanchal.jpg" alt="Chanchal Baug QR">
+              <div class="prog-qr-info">
+                <div class="prog-qr-label">Scan for Directions</div>
+                <div class="prog-qr-venue">Chanchal Baug Party Plot</div>
+                <div class="prog-qr-hint">Scan QR to open in Maps</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Thursday, 28 Jan - Kapidhwaj -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_wedding.jpg" alt="Wedding Hastmedap Mandap">
+              <span class="prog-badge">Day 5 of 6 · 🌸 Wedding Day</span>
+              <div class="prog-hero-txt">
+                <h3>Thursday, 28 January 2027</h3>
+                <div class="dv">Kapidhwaj Party Plot</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">1:45 PM</div>
+                <div class="prog-name"><strong>Jan Prasthan</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">3:30 PM</div>
+                <div class="prog-name"><strong>Expected Arrival</strong> at Kapidhwaj</div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">3:30 – 5:30 PM</div>
+                <div class="prog-name"><strong>Band Baja Procession</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">5:30 PM</div>
+                <div class="prog-name"><strong>Entry into the Venue &amp; Pokwanu</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">6:15 PM</div>
+                <div class="prog-name"><strong>Hastmedap Ceremony</strong></div>
+              </div>
+              <div class="prog-event-row">
+                <div class="prog-time">11:30 PM</div>
+                <div class="prog-name"><strong>Welcoming the Newlyweds</strong> at Our Home 🏠</div>
+              </div>
+            </div>
+            <div class="prog-qr-block">
+              <img src="images/qr_kapidhwaj.jpg" alt="Kapidhwaj QR">
+              <div class="prog-qr-info">
+                <div class="prog-qr-label">Scan for Directions</div>
+                <div class="prog-qr-venue">Kapidhwaj Party Plot</div>
+                <div class="prog-qr-hint">Scan QR to open in Maps</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: Friday, 29 Jan - Reception -->
+          <div class="prog-slide">
+            <div class="prog-hero">
+              <img src="images/prog_reception.jpg" alt="Grand Wedding Reception">
+              <span class="prog-badge">Day 6 of 6 · ✨ Reception</span>
+              <div class="prog-hero-txt">
+                <h3>Friday, 29 January 2027</h3>
+                <div class="dv">Kapidhwaj Party Plot</div>
+              </div>
+            </div>
+            <div class="prog-events">
+              <div class="prog-event-row">
+                <div class="prog-time">7:00 PM</div>
+                <div class="prog-name"><strong>Reception 🎉</strong></div>
+              </div>
+              <div class="prog-story">
+                “An elegant evening celebrating the newlyweds, Dhruv &amp; Nidhi! Join us for heartfelt blessings, memorable portraits with the couple, and a grand celebratory dinner.”
+              </div>
+              <div class="prog-highlights">
+                <span class="prog-chip">🥂 Celebrate the Newlyweds</span>
+                <span class="prog-chip">📸 Stage Portraits</span>
+                <span class="prog-chip">🍽️ Grand Dinner</span>
+              </div>
+            </div>
+            <div class="prog-qr-block">
+              <img src="images/qr_kapidhwaj.jpg" alt="Kapidhwaj QR">
+              <div class="prog-qr-info">
+                <div class="prog-qr-label">Scan for Directions</div>
+                <div class="prog-qr-venue">Kapidhwaj Party Plot</div>
+                <div class="prog-qr-hint">Scan QR to open in Maps</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="prog-events">
-        <div class="prog-event-row">
-          <div class="prog-time">7:00 PM</div>
-          <div class="prog-name"><strong>Reception 🎉</strong></div>
-        </div>
-      </div>
+
+      <div class="dots" id="dp-prog"></div>
+      <div class="prog-swipe-hint">Swipe or tap a day above</div>
     </div>
 
     <!-- Footer -->
@@ -1885,8 +2123,8 @@ h2 {
 <script>
 /* ==================== CONFIGURATION & WEDDING DETAILS ==================== */
 const C = {
-  bride: "Dhruv",
-  groom: "Nidhi",
+  bride: "Dhruv H Pandya",
+  groom: "Nidhi A Jani",
   closing: "Dhruv &amp; Nidhi",
   date: "2027-01-28T18:15:00+05:30",
   dateTxt: { d: "28", m: "January", day: "Thursday" },
@@ -1895,40 +2133,12 @@ const C = {
   
   // Wedding Festivities (Carousel 1)
   fn: [
-    { n: "Bethak", ic: "🎵", img: "images/welcome_drinks.jpg", day: "Sunday, 24 January 2027", t: "7:15 PM onwards", p: "Sheetal Westpark / Venus Ultima", dc: "Delicious Food &amp; Mesmerising Music", col: "#e8a838" },
-    { n: "Bethak", ic: "🎶", img: "images/cocktail_hour.jpg", day: "Monday, 25 January 2027", t: "7:00 PM onwards", p: "Venue TBD", dc: "Delicious Food", col: "#c9a24b" },
-    { n: "Mehndi Night", ic: "🌿", img: "images/after_party.jpg", day: "Tuesday, 26 January 2027", t: "4:00 PM onwards", p: "Venue TBD", dc: "Mehndi &amp; Delicious Food", col: "#6e8c3a" },
-    { n: "Garba Night", ic: "💃", img: "images/white_church.jpg", day: "Wednesday, 27 January 2027", t: "7:00 PM onwards", p: "Chanchal Baug Party Plot", dc: "Melodious Garba Night", col: "#b8385a" },
-    { n: "Wedding Ceremony", ic: "🌸", img: "images/grand_reception.jpg", day: "Thursday, 28 January 2027", t: "3:30 PM onwards", p: "Kapidhwaj Party Plot", dc: "Hastmedap &amp; Band Baja", col: "#942b40" },
-    { n: "Reception", ic: "✨", img: "images/couple_portrait.jpg", day: "Friday, 29 January 2027", t: "7:00 PM onwards", p: "Kapidhwaj Party Plot", dc: "Formal / Traditional", col: "#6e1f2f" }
-  ],
-
-  // Our Story (Carousel 2) - Real Photography Cards
-  story: [
-    {
-      img: "images/story_met.jpg",
-      sub: "Chapter I",
-      title: "How We Met",
-      desc: "A chance meeting at a cozy bookstore café turned into an afternoon of endless laughter and coffee."
-    },
-    {
-      img: "images/story_date.jpg",
-      sub: "Chapter II",
-      title: "The First Date",
-      desc: "A sunset walk along the riverbanks under glowing autumn leaves where hours felt like minutes."
-    },
-    {
-      img: "images/story_proposal.jpg",
-      sub: "Chapter III",
-      title: "The Proposal",
-      desc: "Under starlit skies on a quiet mountain getaway, he got down on one knee, and she joyfully said yes."
-    },
-    {
-      img: "images/story_forever.jpg",
-      sub: "Chapter IV",
-      title: "Forever Begins",
-      desc: "Surrounded by our dearest family and cherished friends on January 28th, our next chapter begins."
-    }
+    { n: "Bethak", ic: "🎵", img: "images/prog_bethak.jpg", day: "Sunday, 24 January 2027", t: "7:15 PM onwards", p: "Sheetal Westpark / Venus Ultima", dc: "Delicious Food &amp; Mesmerising Music", col: "#e8a838" },
+    { n: "Bethak", ic: "🎶", img: "images/prog_feast.jpg", day: "Monday, 25 January 2027", t: "7:00 PM onwards", p: "Family Gathering", dc: "Delicious Food", col: "#c9a24b" },
+    { n: "Mehndi Night", ic: "🌿", img: "images/prog_mehndi.jpg", day: "Tuesday, 26 January 2027", t: "4:00 PM onwards", p: "Mehndi Celebration", dc: "Mehndi &amp; Delicious Food", col: "#6e8c3a" },
+    { n: "Garba Night", ic: "💃", img: "images/prog_garba.jpg", day: "Wednesday, 27 January 2027", t: "7:00 PM onwards", p: "Chanchal Baug Party Plot", dc: "Melodious Garba Night", col: "#b8385a" },
+    { n: "Wedding Ceremony", ic: "🌸", img: "images/prog_wedding.jpg", day: "Thursday, 28 January 2027", t: "3:30 PM onwards", p: "Kapidhwaj Party Plot", dc: "Hastmedap &amp; Band Baja", col: "#942b40" },
+    { n: "Reception", ic: "✨", img: "images/prog_reception.jpg", day: "Friday, 29 January 2027", t: "7:00 PM onwards", p: "Kapidhwaj Party Plot", dc: "Formal / Traditional", col: "#6e1f2f" }
   ],
 
   rec: {
@@ -2118,19 +2328,6 @@ car($('#c1'), $('#d1'), C.fn.map(f => {
   return d;
 }));
 
-// Carousel 2: Our Story with Full-bleed Real Photography
-car($('#c2'), $('#d2'), C.story.map(s => {
-  const d = document.createElement('div');
-  d.innerHTML = `
-    <img src="${s.img}" alt="${s.title}">
-    <div class="cap">
-      <div class="cap-sub">${s.sub}</div>
-      <div class="cap-title">${s.title}</div>
-      <div class="cap-desc">${s.desc}</div>
-    </div>`;
-  return d;
-}));
-
 /* ==================== FALLING PETALS CANVAS ==================== */
 const fx = $('#fx'), fc = fx.getContext('2d');
 let P = [], run = false;
@@ -2200,10 +2397,10 @@ function typeIn(el, txt, d) {
   [...txt].forEach((ch, k) => {
     const s = document.createElement('span');
     s.textContent = ch == ' ' ? '\u00a0' : ch;
-    s.style.animationDelay = (d + k * 0.08) + 's';
+    s.style.animationDelay = (d + k * 0.055) + 's';
     el.appendChild(s);
   });
-  return d + txt.length * 0.08;
+  return d + txt.length * 0.055;
 }
 
 /* ==================== INTRO 3D BOOK INTERACTION ==================== */
@@ -2434,6 +2631,47 @@ $('#song').addEventListener('click', () => {
     startSong(true);
   }
 });
+
+/* ==================== WEDDING PROGRAMME SLIDER ==================== */
+(function initProgSlider() {
+  const vp = $('#prog-vp'), track = $('#prog-track'), dotsWrap = $('#dp-prog');
+  if (!vp || !track || !dotsWrap) return;
+  const tabs = $$('#prog-tabs .prog-tab');
+  const n = track.children.length;
+  let idx = 0, x0 = null, y0 = 0;
+
+  dotsWrap.innerHTML = '';
+  for (let k = 0; k < n; k++) {
+    const dot = document.createElement('i');
+    dot.addEventListener('click', () => goProg(k));
+    dotsWrap.appendChild(dot);
+  }
+
+  function goProg(k) {
+    idx = ((k % n) + n) % n;
+    track.style.transform = `translate3d(${-idx * 100}%,0,0)`;
+    tabs.forEach((t, i) => t.classList.toggle('a', i === idx));
+    [...dotsWrap.children].forEach((d, i) => d.className = i === idx ? 'a' : '');
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => goProg(+t.dataset.slide)));
+
+  vp.addEventListener('pointerdown', e => {
+    x0 = e.clientX;
+    y0 = e.clientY;
+  });
+  vp.addEventListener('pointerup', e => {
+    if (x0 == null) return;
+    const dx = e.clientX - x0, dy = e.clientY - y0;
+    if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) {
+      goProg(idx + (dx < 0 ? 1 : -1));
+    }
+    x0 = null;
+  });
+  vp.addEventListener('pointercancel', () => { x0 = null; });
+
+  goProg(0);
+})();
 
 setP(0);
 </script>
